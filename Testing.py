@@ -5,13 +5,13 @@ import roi
 import rectangle
 
 
-img =  cv2.imread(input("Enter the name of the image : "))
+img =  rectangle.resize(cv2.imread(input("Enter the name of the image : ")))
 
 # lines = detectLines.detect(img)
-# roi.create_roi(img,lines)
+# roi.create_row(img,lines)
 rect_img = rectangle.draw(img)
-lines = detectLines.detect(rect_img)
-roi.create_row(rect_img,lines)
+lines,row_size = detectLines.detect(rect_img)
+roi.create_row(rect_img,lines,row_size)
 
 
 cv2.imshow("Rectangle",rect_img)
